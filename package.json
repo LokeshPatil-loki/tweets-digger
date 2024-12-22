@@ -9,7 +9,8 @@
     "url": "https://github.com/LokeshPatil-loki/tweets-digger"
   },
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "start": "node --loader ts-node/esm src/index.ts"
   },
   "keywords": [
     "tweet",
@@ -20,7 +21,9 @@
   "author": "lokihammer",
   "license": "MIT",
   "devDependencies": {
+    "ts-node": "^10.9.2",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"
-  }
+  },
+  "type": "module"
 }
