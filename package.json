@@ -6,7 +6,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "repository": {
-    "url": "https://github.com/LokeshPatil-loki/tweets-digger"
+    "url": "git+https://github.com/LokeshPatil-loki/tweets-digger.git"
   },
   "scripts": {
     "build": "tsup",
