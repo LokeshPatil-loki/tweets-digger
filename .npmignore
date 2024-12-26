@@ -4,3 +4,5 @@
 tsconfig.json
 tsup.config.ts
 cookies.json
+data.json
+
