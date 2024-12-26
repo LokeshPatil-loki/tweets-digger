@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "start": "node --loader ts-node/esm src/index.ts"
+    "start": "npm run build && node ./dist/index.js"
   },
   "keywords": [
     "tweet",
