@@ -8,7 +8,7 @@ export async function scrollTillEnd(
 ) {
   console.log("Called");
   let previousPostCount = extractedTweets.length;
-  let sameCountIterations = 0;
+  let retryCount = 0;
 
   while (extractedTweets.length < totalNumberOfPosts) {
     await page.evaluate("window.scrollTo(0,document.body.scrollHeight)");
@@ -16,16 +16,14 @@ export async function scrollTillEnd(
 
     // Check if post count hasn't changed
     if (previousPostCount === extractedTweets.length) {
-      sameCountIterations++;
-      console.log(extractedTweets.length, "same count", sameCountIterations);
-      if (sameCountIterations >= 20) {
+      retryCount++;
+      if (retryCount >= 6) {
         throw new Error(
           "Failed to load more posts: Post count remained same for 20 iterations"
         );
       }
     } else {
-      console.log("reset counter");
-      sameCountIterations = 0;
+      retryCount = 0;
       previousPostCount = extractedTweets.length;
     }
   }
