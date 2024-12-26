@@ -38,7 +38,7 @@ export const scrapeTweetsOfUser = async (
             // console.clear();
           });
           console.log(`${extractedTweets.length}/${totalNumberOfPosts}`);
-          await writeDataToFile("./data.json", JSON.stringify(extractedTweets));
+          await writeDataToFile("./data.json", extractedTweets);
 
           if (extractedTweets.length >= totalNumberOfPosts) {
             scrapingFinished = true;
@@ -75,3 +75,11 @@ export const scrapeTweetsOfUser = async (
   // Return the extracted tweets
   return extractedTweets;
 };
+
+(async () => {
+  const data = await scrapeTweetsOfUser(
+    "RheaBadal",
+    "bd44ea09d8aa8b42534cb05adf393ec8ac2035be"
+  );
+  console.log("Extract Data:", data.length);
+})();
